@@ -8,8 +8,8 @@ export const makePostRequest = async (url, details) => {
     try {
         const response = await fetch(url, options);
         const data = await response.json();
-        return console.log('Success:', data);
+        return console.log('Success Unicorn');
     } catch (err) {
-        return console.error('Error:', err);
+        return console.error('Error');
     };
 };
