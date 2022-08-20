@@ -1,12 +1,15 @@
-export const makePostRequest = (url, details) => {
+export const makePostRequest = async (url, details) => {
     const options = {
         method: 'POST',
         headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
         body: JSON.stringify(details)
     };
 
-    return fetch(url, options)
-        .then((response) => response.json())
-        .then(data => console.log('Success:', data))
-        .catch(err => console.error('Error:', err));;
+    try {
+        const response = await fetch(url, options);
+        const data = await response.json();
+        return console.log('Success:', data);
+    } catch (err) {
+        return console.error('Error:', err);
+    };
 };
