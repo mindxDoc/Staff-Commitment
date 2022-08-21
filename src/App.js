@@ -79,6 +79,7 @@ ${this.state.todo}
     this.pushMessToTele();
     this.submitToForm();
     this.successSubmit();
+    e.target.reset();
   };
 
   render() {
@@ -107,16 +108,16 @@ ${this.state.todo}
               </select>
 
               <label>Working:</label>
-              <input type="radio" id="offline" value="Offline" name="working" className="Option-input Radio" onChange={this.handleInput} />
+              <input type="radio" id="offline" value="OFFLINE" name="working" className="Option-input Radio" onChange={this.handleInput} />
               <label htmlFor="offline" className="Light">In Office</label>
               <br />
-              <input type="radio" id="remote" value="Online" name="working" className="Option-input Radio" onChange={this.handleInput} />
+              <input type="radio" id="remote" value="ONLINE" name="working" className="Option-input Radio" onChange={this.handleInput} />
               <label htmlFor="remote" className="Light">Remote</label>
               <br />
-              <input type="radio" id="off_with_permission" value="Nghỉ phép" name="working" className="Option-input Radio" onChange={this.handleInput} />
+              <input type="radio" id="off_with_permission" value="NGHỈ PHÉP" name="working" className="Option-input Radio" onChange={this.handleInput} />
               <label htmlFor="off_with_permission" className="Light">Nghỉ có phép</label>
               <br />
-              <input type="radio" id="off_without_permission" value="Nghỉ 0 phép" name="working" className="Option-input Radio" onChange={this.handleInput} />
+              <input type="radio" id="off_without_permission" value="NGHỈ KHÔNG PHÉP" name="working" className="Option-input Radio" onChange={this.handleInput} />
               <label htmlFor="off_without_permission" className="Light">Nghỉ 0 phép</label>
             </fieldset>
 
