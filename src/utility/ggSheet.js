@@ -10,13 +10,16 @@ export const postMessageToGoogle = async (data) => {
             method: "POST",
             mode: "no-cors",
             header: {
-                'Content-Type': 'application/json'
+                Accept: 'application/json',
+                'Content-Type': 'application/x-www-form-urlencoded',
             },
             body: data
         });
-        const res = await response.json();
-        return console.log('Success', res);
+        const string = await response.text();
+        console.log("Let's Party");
+        const json = string === "" ? {} : JSON.parse(string);
+        return json;
     } catch (error) {
-        return console.error('Error', error);
+        return console.error("What's wrong? => ", error);
     }
 }

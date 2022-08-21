@@ -19,6 +19,19 @@ class App extends Component {
     }
   }
 
+  initialState = {
+    staff: '',
+    working: '',
+    done: '',
+    todo: ''
+  }
+
+  state = this.initialState
+
+  handleFormReset = () => {
+    this.setState(() => this.initialState)
+  }
+
   handleInput = (e) => {
     this.setState({
       [e.target.name]: e.target.value,
@@ -32,12 +45,12 @@ class App extends Component {
     });
   }
 
-  onSubmit = (e) => {
+  pushMessToTele = () => {
     let message =
       `
 <pre>${new Date()}</pre>
 <b>${this.state.staff}</b>
-Working: <i>${this.state.working}</i>
+Working: <b><i>${this.state.working}</i></b>
 --------------------------------------------------
 <b>Done Tasks</b>
 ${this.state.done}
@@ -45,26 +58,34 @@ ${this.state.done}
 <b>Today Tasks</b>
 ${this.state.todo}
 `;
+
     sendNotification(message, 'HTML');
+  }
 
-    const data = {
-      'entry.1446492779': this.state.staff,
-      'entry.510634023': this.state.working,
-      'entry.420941345': this.state.done,
-      'entry.52266175': this.state.todo
-    }
-    postMessageToGoogle(data);
+  submitToForm = () => {
+    const formData = new FormData();
 
-    this.successSubmit();
+    const GGL_FORM_STAFF_ID = 'entry.1446492779';
+    const GGL_FORM_WORKING_ID = 'entry.510634023';
+
+    formData.append(GGL_FORM_STAFF_ID, this.state.staff)
+    formData.append(GGL_FORM_WORKING_ID, this.state.working)
+    postMessageToGoogle(formData);
+  }
+
+  onSubmit = (e) => {
     e.preventDefault();
-    e.target.reset();
+
+    this.pushMessToTele();
+    this.submitToForm();
+    this.successSubmit();
   };
 
   render() {
     return (
       <div className="row">
         <div className='col-md-12'>
-          <form className='Form' onSubmit={this.onSubmit}>
+          <form className='Form' onSubmit={this.onSubmit} onReset={this.handleFormReset}>
             <h1>Daily Commitment</h1>
             <fieldset>
               <legend><span className='Number'>1</span> Your Info</legend>
@@ -86,10 +107,17 @@ ${this.state.todo}
               </select>
 
               <label>Working:</label>
-              <input type="radio" id="offline" value="In Office" name="working" className="Option-input Radio" onChange={this.handleInput} />
-              <label htmlFor="offline" className="Light">In Office</label><br></br>
-              <input type="radio" id="remote" value="Remote" name="working" className="Option-input Radio" onChange={this.handleInput} />
+              <input type="radio" id="offline" value="Offline" name="working" className="Option-input Radio" onChange={this.handleInput} />
+              <label htmlFor="offline" className="Light">In Office</label>
+              <br />
+              <input type="radio" id="remote" value="Online" name="working" className="Option-input Radio" onChange={this.handleInput} />
               <label htmlFor="remote" className="Light">Remote</label>
+              <br />
+              <input type="radio" id="off_with_permission" value="Nghỉ phép" name="working" className="Option-input Radio" onChange={this.handleInput} />
+              <label htmlFor="off_with_permission" className="Light">Nghỉ có phép</label>
+              <br />
+              <input type="radio" id="off_without_permission" value="Nghỉ 0 phép" name="working" className="Option-input Radio" onChange={this.handleInput} />
+              <label htmlFor="off_without_permission" className="Light">Nghỉ 0 phép</label>
             </fieldset>
 
             <fieldset>
