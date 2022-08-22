@@ -103,7 +103,7 @@ ${this.state.todo}
                 <optgroup label="Ho Chi Minh">
                   <option value="Võ Hoàng Việt">Võ Hoàng Việt</option>
                   <option value="Nguyễn Ngọc Minh">Nguyễn Ngọc Minh</option>
-                  <option value="Trần Gia Bảo">Trần Gia Bảo</option>
+                  <option value="Nguyễn Gia Bảo">Nguyễn Gia Bảo</option>
                 </optgroup>
               </select>
 
