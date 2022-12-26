@@ -92,13 +92,11 @@ ${this.state.todo}
               <legend><span className='Number'>1</span> Your Info</legend>
               <label htmlFor="staff">Name:</label>
               <select id="staff" name="staff" onChange={this.handleInput} value={this.state.staff}>
-                <optgroup label="Hanoi">
-                  <option value="">Select...</option>
+                <option value="">Select...</option>
+                <optgroup label="Hanoi">  
                   <option value="Lê Thu Hải An">Lê Thu Hải An</option>
                   <option value="Nguyễn Trung Hiếu">Nguyễn Trung Hiếu</option>
                   <option value="Vũ Thị Minh Hoài">Vũ Thị Minh Hoài</option>
-                  <option value="Đinh Quang Minh">Đinh Quang Minh</option>
-                  <option value="Nguyễn Đình Phước">Nguyễn Đình Phước</option>
                 </optgroup>
                 <optgroup label="Ho Chi Minh">
                   <option value="Võ Hoàng Việt">Võ Hoàng Việt</option>
