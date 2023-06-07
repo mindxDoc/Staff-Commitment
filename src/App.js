@@ -139,16 +139,16 @@ ${this.state.todo}
               >
                 <option value="">Select...</option>
                 <optgroup label="Hanoi">
-                  <option value="Lê Thu Hải An">Lê Thu Hải An</option>
                   <option value="Nguyễn Trung Hiếu">Nguyễn Trung Hiếu</option>
+                  <option value="Đinh Hoàng Sơn">Đinh Hoàng Sơn</option>
+                  <option value="Toàn Đặng">Toàn Đặng</option>
                 </optgroup>
                 <optgroup label="Ho Chi Minh">
                   <option value="Võ Hoàng Việt">Võ Hoàng Việt</option>
-                  <option value="Nguyễn Ngọc Minh">Nguyễn Ngọc Minh</option>
-                  <option value="Nguyễn Gia Bảo">Nguyễn Gia Bảo</option>
-                  <option value="Nguyễn Ngọc Hân">Nguyễn Ngọc Hân</option>
                   <option value="Đào Thiên Anh Khoa">Đào Thiên Anh Khoa</option>
                   <option value="Võ T Tường Duy">Võ T Tường Duy</option>
+                  <option value="Võ Minh Nhật">Võ Minh Nhật</option>
+                  <option value="Nguyễn Trường Phú">Nguyễn Trường Phú</option>
                 </optgroup>
               </select>
 
