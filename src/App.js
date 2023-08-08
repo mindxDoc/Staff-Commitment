@@ -150,7 +150,7 @@ ${this.state.todo}
                   <option value="Võ Minh Nhật">Võ Minh Nhật</option>
                   <option value="Nguyễn Trường Phú">Nguyễn Trường Phú</option>
                   <option value="Tạ Minh Huy">Tạ Minh Huy</option>
-                  <option value="Tạ Minh Huy">Phạm Nguyễn Cao Duy</option>
+                  <option value="Phạm Nguyễn Cao Duy">Phạm Nguyễn Cao Duy</option>
                 </optgroup>
               </select>
 
